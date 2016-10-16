@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A3E011CC-6539-622B-9F80-F566523388F6}</ProjectGuid>
+    <ProjectGuid>{5F48F233-C8F6-8CAD-142F-8FD3326FFDAC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,9 +45,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FPSController\JumperFirstPersonController.cs" />
-     <Compile Include="Assets\FPSController\MobileTouchController.cs" />
+     <Compile Include="Assets\Models\Checkpoint\AnchorPoint\AnchorPointScript.cs" />
+     <Compile Include="Assets\Models\GameController\GameController.cs" />
+     <Compile Include="Assets\Models\GameGUI\GameGUIScript.cs" />
+     <Compile Include="Assets\Models\GameGUI\HealthIndicator.cs" />
+     <Compile Include="Assets\Models\GameGUI\TopTextScript.cs" />
+     <Compile Include="Assets\Models\GuideLines\Curver.cs" />
+     <Compile Include="Assets\Models\GuideLines\LeftGuideLineController.cs" />
+     <Compile Include="Assets\Models\GuideLines\RightGuideLineController.cs" />
+     <Compile Include="Assets\Models\MainGUI\MainGUIScrpit.cs" />
+     <Compile Include="Assets\Scripts\JumperFirstPersonController.cs" />
+     <Compile Include="Assets\Scripts\MainUI\CreditBtn.cs" />
+     <Compile Include="Assets\Scripts\MainUI\QuitBtn.cs" />
      <Compile Include="Assets\Scripts\MeteorController.cs" />
+     <Compile Include="Assets\Scripts\MobileTouchController.cs" />
+     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
