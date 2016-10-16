@@ -13,6 +13,9 @@ public class JumperFirstPersonController : MonoBehaviour {
         // get rigidbody 
         gameObject.GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+        audio.Play(44100);
     }
 
     // Update is called once per frame
