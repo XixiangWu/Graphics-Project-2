@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
     // Boost the Camera
     private float boostDuration = 2.0f;
     private float boostTimer = 0.0f;
-    private float finalSpeed = 300;
+    private float finalSpeed = 500;
     private bool isBoostFinished = false;
 
     // main game object
@@ -56,8 +56,8 @@ public class GameController : MonoBehaviour
         // hence I divide z direction to 4 parts, so that there will have 4 different sections four generating checkpoint
 
         // Assume z max is 5000 (it means that one round of SpaceJumper may use less that 60 seconds)
-        zMax = 5000;
-        zMin = 5000;
+        zMax = 20000;
+        zMin = 20000;
         float zCoor = Random.Range(zMin, zMax);
 
         // create temp array for storing check point position
@@ -96,8 +96,7 @@ public class GameController : MonoBehaviour
         
     void Update()
     {
-
-
+        // Boosting
         // update timer
         if (!isBoostFinished) {
             if (boostTimer - Time.deltaTime <= 0.0f)
@@ -111,6 +110,10 @@ public class GameController : MonoBehaviour
                 boostTimer -= Time.deltaTime;
             }
         }
+
+        // Metero generator
+
+
     }
 
     // getter for game status

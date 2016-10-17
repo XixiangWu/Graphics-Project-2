@@ -42,7 +42,7 @@ public class LeftGuideLineController : MonoBehaviour
         int counter = 0;
         foreach (var point in points1)
         {
-            lineRendererLeft.SetPosition(counter, point);
+            lineRendererLeft.SetPosition(counter, point - new Vector3(20,0,0));
             counter++;
         }
 
@@ -65,7 +65,7 @@ public class LeftGuideLineController : MonoBehaviour
         int counter = 0;
         foreach (var point in points1)
         {
-            lineRendererLeft.SetPosition(counter, point);
+            lineRendererLeft.SetPosition(counter, point - new Vector3(20, 0, 0));
             counter++;
         }
         counter = 0;

@@ -49,7 +49,7 @@ public class RightGuideLineController : MonoBehaviour
         int counter = 0;
         foreach (var point in points2)
         {
-            lineRendererRight.SetPosition(counter, point);
+            lineRendererRight.SetPosition(counter, point - new Vector3(-20, 0, 0));
             counter++;
         }
 
@@ -72,7 +72,7 @@ public class RightGuideLineController : MonoBehaviour
         int counter = 0;
         foreach (var point in points2)
         {
-            lineRendererRight.SetPosition(counter, point);
+            lineRendererRight.SetPosition(counter, point - new Vector3(-20, 0, 0));
             counter++;
         }
     }
