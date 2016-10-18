@@ -15,11 +15,15 @@ public class JumperFirstPersonController : MonoBehaviour {
     private float currSpeed;
     private float backwardSpeed;
     public Rigidbody rb;
+    public GameObject explosion;
 
     // Status
     private int max_health;
     private int health;
-    
+
+    public AudioClip audio_exp;
+    private AudioSource audio;
+
     void Start () {
 
         // get rigidbody 
@@ -32,9 +36,7 @@ public class JumperFirstPersonController : MonoBehaviour {
         backwardSpeed = -300.0f;
         collideAnimation = false;
 
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
-        audio.Play(44100);
+        audio = GetComponent<AudioSource>();
 
         // init: status
         max_health = 100;
@@ -123,6 +125,8 @@ public class JumperFirstPersonController : MonoBehaviour {
         collideAnimation = true;
         collideAnimationTimer = collideAnimationTime;
         Damage(collisionInfo.collider.name);
+        Instantiate(explosion, rb.transform.position, Quaternion.Euler(0, 0, 0));
+        audio.PlayOneShot(audio_exp, 1f);
     }
 
     // Damage
