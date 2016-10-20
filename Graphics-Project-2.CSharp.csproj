@@ -82,7 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\MeteorShader.shader" />
-    <None Include="Assets\Shaders\TextShader.shader" />
+    <None Include="Assets\Shaders\PhongShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
