@@ -16,7 +16,6 @@ public class MeteorController : MonoBehaviour {
     public Camera mainCamera;
     private bool shouldDeleteMeteors;
     public int cleanRange;
-    private bool needClean;
     private int zCoorFinishedClean;
 
 
@@ -32,7 +31,6 @@ public class MeteorController : MonoBehaviour {
         mainCamera = Camera.main;
 
         //
-        needClean = false;
         zCoorFinishedClean = 0;
     }
 
