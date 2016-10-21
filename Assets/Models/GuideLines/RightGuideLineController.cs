@@ -5,9 +5,9 @@ public class RightGuideLineController : MonoBehaviour
 {
 
     private Vector3[] points_standard;
-    public Vector3[] points2;
+    public Vector3[] points;
 
-    public LineRenderer lineRendererRight;
+    private LineRenderer lineRendererRight;
     private Color color1;
     private Color color2;
     private float minX;
@@ -18,7 +18,7 @@ public class RightGuideLineController : MonoBehaviour
     public RightGuideLineController(Vector3[] pathList)
     {
         // init the path list
-        points2 = (Vector3[])pathList.Clone();
+        points = (Vector3[])pathList.Clone();
 
     }
 
@@ -27,61 +27,90 @@ public class RightGuideLineController : MonoBehaviour
     {
 
         // init color
-        color1 = Color.blue;
-        color2 = Color.blue;
+        color1 = new Color(28.0f/255.0f, 171.0f / 255.0f, 25.0f / 255.0f, 1.0f);
+        color2 = new Color(28.0f / 255.0f, 171.0f / 255.0f, 25.0f / 255.0f, 1.0f);
 
 
         // init main camera
         mainCameraObject = Camera.main.gameObject;
 
-        points_standard = points2;
-        points2 = points_standard;
+        points[0] = mainCameraObject.transform.position;
+        points_standard = (Vector3[])points.Clone();
 
-        points2 = Curver.MakeSmoothCurve(points2, 10.0f);
+        points = (Vector3[])points_standard.Clone();
+
+        points = Curver.MakeSmoothCurve(points, 10.0f);
 
         // draw first line
         lineRendererRight = gameObject.GetComponent<LineRenderer>();
         lineRendererRight.SetColors(color1, color2);
-        lineRendererRight.SetWidth(0.5f, 0.5f);
-        lineRendererRight.SetVertexCount(points2.Length);
+        lineRendererRight.SetWidth(0.3f, 0.3f);
+        lineRendererRight.SetVertexCount(points.Length);
 
 
         int counter = 0;
-        foreach (var point in points2)
+        foreach (var point in points)
         {
-            lineRendererRight.SetPosition(counter, point - new Vector3(-20, 0, 0));
+            lineRendererRight.SetPosition(counter, point - new Vector3(-5, 0, 0));
             counter++;
         }
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // get character's position
-        points_standard[0] = mainCameraObject.transform.position;
+            // get character's position
+            points_standard[0] = mainCameraObject.transform.position;
 
-        points2 = (Vector3[])points_standard.Clone();
+            points = (Vector3[])points_standard.Clone();
 
-        points2[0][0] += 20;
-        points2[0][1] -= 5;
+            points[0][0] += 20;
+            points[0][1] -= 5;
 
-        points2 = Curver.MakeSmoothCurve(points2, 10.0f);
+            points = Curver.MakeSmoothCurve(points, 10.0f);
+            lineRendererRight.SetVertexCount(points.Length);
 
+            int counter = 0;
+            foreach (var point in points)
+            {
+                lineRendererRight.SetPosition(counter, point - new Vector3(-5, 0, 0));
+                counter++;
+            }
 
-        int counter = 0;
-        foreach (var point in points2)
-        {
-            lineRendererRight.SetPosition(counter, point - new Vector3(-20, 0, 0));
-            counter++;
-        }
     }
 
 
     public void setPathList(Vector3[] pathList)
     {
         // init the path list
-        points2 = (Vector3[])pathList.Clone();
+        points = (Vector3[])pathList.Clone();
 
+    }
+
+
+    public void deleteFirstPoint()
+    {
+        Vector3[] tempPoints;
+
+        if (points_standard.Length - 1 != 0)
+        {
+            tempPoints = new Vector3[points_standard.Length - 1];
+        }
+        else
+        {
+            tempPoints = new Vector3[points_standard.Length];
+        }
+
+
+        tempPoints[0] = points_standard[0];
+
+        for (int i = 1; i < points_standard.Length - 1; i++)
+        {
+            tempPoints[i] = points_standard[i + 1];
+        }
+
+        points_standard = (Vector3[])tempPoints.Clone();
     }
 }

@@ -40,4 +40,9 @@ public class  MobileTouchController : MonoBehaviour
             }
         }
     }
+
+	public void switchStatus() {
+		GetComponent<MobileTouchController> ().enabled = !GetComponent<MobileTouchController> ().enabled;
+	}
+		
 }

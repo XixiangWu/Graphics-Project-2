@@ -17,4 +17,9 @@ public class MainGUIScrpit : MonoBehaviour {
     // Update is called once per frame
     void Update () {
     }
+
+    public void setEnable(bool enable)
+    {
+        CanvasObject.enabled = enable;
+    }
 }

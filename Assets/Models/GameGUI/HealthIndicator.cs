@@ -12,6 +12,7 @@ public class HealthIndicator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
         healthText = GetComponent<Text>();
 
         // connect with mainCamera
@@ -24,8 +25,8 @@ public class HealthIndicator : MonoBehaviour {
 	void Update () {
         if (jfpc.getFullHealth() != 0)
         {
-            healthText.text = "Health: " + jfpc.getHealth() + "/" + jfpc.getFullHealth();
+            healthText.text = jfpc.getHealth() + " / " + jfpc.getFullHealth();
         }
-
+        
     }
 }

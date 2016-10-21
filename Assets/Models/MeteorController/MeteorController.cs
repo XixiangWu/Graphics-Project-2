@@ -16,7 +16,6 @@ public class MeteorController : MonoBehaviour {
     public Camera mainCamera;
     private bool shouldDeleteMeteors;
     public int cleanRange;
-    private bool needClean;
     private int zCoorFinishedClean;
 
 
@@ -31,8 +30,6 @@ public class MeteorController : MonoBehaviour {
 
         mainCamera = Camera.main;
 
-        //
-        needClean = false;
         zCoorFinishedClean = 0;
     }
 
@@ -98,5 +95,10 @@ public class MeteorController : MonoBehaviour {
         z = Random.Range(zMin, zMax);
 
         Instantiate(meteor2, meteorSpawn.position + new Vector3(x, y, z), Quaternion.Euler(rotation1, rotation2, rotation3));
+    }
+
+    public void reset()
+    {
+        zCoorFinishedClean = 0;
     }
 }
