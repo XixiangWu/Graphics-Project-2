@@ -1,7 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{55531FA6-3A14-5542-07E7-43D484C9C074}") = "Graphics-Project-2", "Assembly-CSharp.csproj", "{5B7BD90E-DBA3-C5B3-095F-2CF821EC1146}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics-Project-2.CSharp", "Graphics-Project-2.CSharp.csproj", "{2F3EF5AA-7FA3-81B6-F267-CF095B988692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5B7BD90E-DBA3-C5B3-095F-2CF821EC1146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B7BD90E-DBA3-C5B3-095F-2CF821EC1146}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B7BD90E-DBA3-C5B3-095F-2CF821EC1146}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B7BD90E-DBA3-C5B3-095F-2CF821EC1146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F3EF5AA-7FA3-81B6-F267-CF095B988692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3EF5AA-7FA3-81B6-F267-CF095B988692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3EF5AA-7FA3-81B6-F267-CF095B988692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3EF5AA-7FA3-81B6-F267-CF095B988692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
