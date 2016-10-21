@@ -9,6 +9,11 @@ public class Meteor2Script : MonoBehaviour
     private AudioSource audioSource;
     public GameObject explosion;
     public GameObject explosion2;
+    private MeshRenderer _renderer;
+    private Light _light;
+    public Shader shader;
+    public Texture texture;
+    public Texture normalMap;
 
     // Use this for initialization
     void Start()
@@ -28,12 +33,18 @@ public class Meteor2Script : MonoBehaviour
         torque.y = Random.Range(-200, 200);
         torque.z = Random.Range(-200, 200);
         GetComponent<ConstantForce>().torque = torque;
+
+        _renderer = this.gameObject.GetComponent<MeshRenderer>();
+        _light = GameObject.FindWithTag("light").GetComponent<Light>();
+        _renderer.material.SetColor("lightColor", _light.color);
+        _renderer.material.mainTexture = texture;
+        _renderer.material.SetTexture("normalMap", normalMap);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        _renderer.material.SetVector("lightPosition", _light.transform.position);
     }
 
     // collision

@@ -76,6 +76,27 @@ We did two approach to create the feeling of space jumping:
 
 - The shake head animation which implement by myself to create the jumper wants to clean his head so he shake it every time he crushed into meteors.
 
+===========================================================
+Shaders
+
+1. MeteorShader 
+Firstly, we created prefabs for two meteor model and bind script to them. There are 3 shader-related public varibles which are shader, texture and normal map.
+We assigned them proper values, and then passed them to CG shader together with references of spotlight and its position via script.
+
+Secondly, in .shader file, we converted all the meteors' vertex and position to world coordinate system.
+
+Thirdly, we tested the basic texture by only using "float4 surfaceColor = tex2D(_MainTex, v.uv); return surfaceColor"
+
+Fourthly, we added "bump effect" by using "float3 bump = (tex2D(normalMap, v.uv) - float3(0.5, 0.5, 0.5)) * 2.0;". The reason why add an Vecter3(-0.5) * 2 is 
+because we need to convert its origin range (0,1) to (-1,1) which fits for bump effect.
+
+Then, we added phongshader, amb + diff + spec.
+
+Lastly, we kept the alpha channel unchanged.
+
+The final performance are affected by the following coefficient : amb, diff, spec, light color, light position, light intensity, spot angle, texture, normal(shape).
+And we adapted it carefully as you can see.
+
 
 ===========================================================
 Code
@@ -101,7 +122,4 @@ The following codes in "SpaceJumper" is not from our original work:
 - YuliFM-MotherShipA32
 	The big mothership which is placed at the destination.
 
-
-
-Xixiang Wu
 

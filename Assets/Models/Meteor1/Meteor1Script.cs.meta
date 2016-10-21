@@ -1,10 +1,17 @@
 fileFormatVersion: 2
 guid: 43f40a918a413fc429b625997254c9c1
-timeCreated: 1476714502
+timeCreated: 1477085674
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - explosion: {instanceID: 0}
+  - explosion2: {instanceID: 0}
+  - audio_exp: {instanceID: 0}
+  - rb: {instanceID: 0}
+  - shader: {fileID: 4800000, guid: 81967ec8792f6fb4892cd4b000c14c5d, type: 3}
+  - texture: {fileID: 2800000, guid: a1521ef7039ea8e4985731b2b31f28b3, type: 3}
+  - normalMap: {fileID: 2800000, guid: ee24f40e69aac9b4c96aeff239fde168, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
