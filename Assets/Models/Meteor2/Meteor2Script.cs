@@ -33,12 +33,13 @@ public class Meteor2Script : MonoBehaviour
         torque.y = Random.Range(-200, 200);
         torque.z = Random.Range(-200, 200);
         GetComponent<ConstantForce>().torque = torque;
-
+        
         _renderer = this.gameObject.GetComponent<MeshRenderer>();
         _light = GameObject.FindWithTag("light").GetComponent<Light>();
         _renderer.material.SetColor("lightColor", _light.color);
         _renderer.material.mainTexture = texture;
         _renderer.material.SetTexture("normalMap", normalMap);
+        
     }
 
     // Update is called once per frame

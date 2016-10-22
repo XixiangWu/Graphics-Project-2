@@ -79,7 +79,10 @@ We did two approach to create the feeling of space jumping:
 ===========================================================
 Shaders
 
-1. MeteorShader 
+1. BumpShader
+
+Reference : lab7
+
 Firstly, we created prefabs for two meteor model and bind script to them. There are 3 shader-related public varibles which are shader, texture and normal map.
 We assigned them proper values, and then passed them to CG shader together with references of spotlight and its position via script.
 
@@ -96,6 +99,21 @@ Lastly, we kept the alpha channel unchanged.
 
 The final performance are affected by the following coefficient : amb, diff, spec, light color, light position, light intensity, spot angle, texture, normal(shape).
 And we adapted it carefully as you can see.
+
+2. ToonShader
+
+Reference : https://en.wikibooks.org/wiki/Cg_Programming/Unity/Toon_Shading
+(Only used one pass)
+
+At first I tried to implement this all by myself by following the cg documents. It turned out I cannot do it this way since many native function 
+is not support by unity such as tex1D.
+
+This shader is actually quite similar with the phong illumination model except for handling outline edges. We still need to calculate diff and spec based on normals.
+In our special case, dot(N,V) = dot(N,L). Since we bind the character on the camera, L = V.
+
+When we are testing it we can easy find aliasing when the camera moving closer to the meteor, some black spot appeared.
+This is because the program relies on a gradual fall-off of N dot V to find silhouette edges. When objects have sharp edges, N dot V suddenly changes at the boundary, immediately causing the outline to turn completely black.
+
 
 
 ===========================================================
